@@ -1,0 +1,27 @@
+.header-img {
+  height: 50vh;
+  background: url(../../../../assets/header-img.png) no-repeat center
+    center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border:none;
+  border-radius: 1em;
+
+    /* Add the blur effect */
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+.header-text{
+  position: absolute;
+  color: rgb(255, 255, 255);
+top:35%;
+left:50%;
+transform: translate(-50%, -50%);
+word-wrap: break-word;
+text-align: center;
+
+}
+
+

@@ -1,0 +1,7 @@
+.what{
+  min-height:70vh;
+  background-color: rgb(230, 222, 202);
+
+  display:flex;
+  align-items: center;
+}
