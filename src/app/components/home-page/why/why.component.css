@@ -1,0 +1,16 @@
+.why{
+  background-color:rgb(185, 173, 173);
+  min-height: 50vh;
+}
+
+.why-col{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.why-icon{
+font-size: 3.2rem;
+}
