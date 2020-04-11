@@ -8,6 +8,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 
 
 const routes: Routes = [
+  // {path: '/',component: HomePageComponent},
   {path: 'home',component: HomePageComponent},
   {path: 'recipes',component: RecipesPageComponent},
   {path: 'add',component: AddRecipesPageComponent},

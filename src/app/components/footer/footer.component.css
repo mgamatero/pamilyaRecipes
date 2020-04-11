@@ -1,0 +1,32 @@
+.footer{
+  border-top: solid 2px grey;
+  background-color: rgb(151, 170, 189);
+  display:flex;
+ justify-content: space-around;
+}
+
+.footer-wrapper{
+  color:white;
+  padding:1.3rem;
+}
+
+.footer-header{
+  font-weight: bold;
+}
+
+.footer-links{
+  list-style: none;
+}
+
+.footer-link-item{
+  color:white;
+  font-size: .8rem;
+}
+
+@media (max-width: 600px) {
+  .footer{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(122, 115, 115);
+  }
+ }

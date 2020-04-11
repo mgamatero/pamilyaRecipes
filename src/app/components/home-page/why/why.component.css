@@ -14,3 +14,20 @@
 .why-icon{
 font-size: 3.2rem;
 }
+
+.employers{
+  animation: employerColorChange 2s infinite;
+}
+
+@keyframes employerColorChange {
+  0% {color: #0000ff;}
+  50% {color: #ff000d;}
+  100% {color: #0000ff;}
+}
+
+
+@media (max-width: 600px) {
+  .why-text , .why-icon{
+    font-size: 1rem;
+    }
+}

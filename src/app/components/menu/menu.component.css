@@ -31,6 +31,7 @@
   display: flex;
   justify-content:space-between;
   align-items: center;
+
 }
 
 .menu-right-links{
@@ -39,5 +40,13 @@
   justify-content: space-between;
   padding:1rem;
   list-style: none;
+  font-weight: bolder;
+
   }
+
+  .navbar{
+    background-color: rgb(151, 170, 189);
+  }
+
+
 
