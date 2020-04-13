@@ -1,6 +1,6 @@
 .why{
   background-color:rgb(185, 173, 173);
-  min-height: 50vh;
+  /* min-height: 50vh; */
 }
 
 .why-col{
@@ -29,5 +29,8 @@ font-size: 3.2rem;
 @media (max-width: 600px) {
   .why-text , .why-icon{
     font-size: 1rem;
+    }
+    .title-text-nunito{
+      font-size: 1.5rem;
     }
 }

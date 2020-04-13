@@ -30,3 +30,16 @@
     background-color: rgb(122, 115, 115);
   }
  }
+
+@media (max-width: 380px) {
+  .footer{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(122, 115, 115);
+  }
+
+  .footer-wrapper{
+    color:white;
+    padding:0 .8rem;
+  }
+ }
