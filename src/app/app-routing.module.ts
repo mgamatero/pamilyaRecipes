@@ -5,15 +5,17 @@ import { RecipesPageComponent } from './components/recipes-page/recipes-page.com
 import { AddRecipesPageComponent } from './components/add-recipes-page/add-recipes-page.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
 
 
 const routes: Routes = [
-  // {path: '/',component: HomePageComponent},
+  { path: "", component: HomePageComponent },
   {path: 'home',component: HomePageComponent},
   {path: 'recipes',component: RecipesPageComponent},
   {path: 'add',component: AddRecipesPageComponent},
   {path: 'about',component: AboutPageComponent},
   {path: 'login',component: LoginPageComponent},
+  {path: '**',component: NotfoundPageComponent}
 ];
 
 @NgModule({

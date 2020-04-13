@@ -13,6 +13,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { HeaderComponent } from './components/home-page/header/header.component';
 import { WhatComponent } from './components/home-page/what/what.component';
 import { WhyComponent } from './components/home-page/why/why.component';
+import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WhyComponent } from './components/home-page/why/why.component';
     LoginPageComponent,
     HeaderComponent,
     WhatComponent,
-    WhyComponent
+    WhyComponent,
+    NotfoundPageComponent
   ],
   imports: [
     BrowserModule,
