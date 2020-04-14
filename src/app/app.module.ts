@@ -15,6 +15,14 @@ import { WhatComponent } from './components/home-page/what/what.component';
 import { WhyComponent } from './components/home-page/why/why.component';
 import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+
+import { RecipeService } from './services/recipe.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +36,19 @@ import { NotfoundPageComponent } from './components/notfound-page/notfound-page.
     HeaderComponent,
     WhatComponent,
     WhyComponent,
-    NotfoundPageComponent
+    NotfoundPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [RecipeService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

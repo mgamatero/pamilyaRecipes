@@ -1,0 +1,21 @@
+.recipes{
+  /* height: 50vh; */
+  background: url(../../../assets/recipes-img.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: none;
+  border-radius: 1em;
+
+  /* Add the blur effect */
+  /* filter: blur(3px);
+  -webkit-filter: blur(3px); */
+}
+
+.recipes-title{
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: bisque;
+}
