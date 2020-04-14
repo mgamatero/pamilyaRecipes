@@ -22,6 +22,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
 import { RecipeService } from './services/recipe.service';
+import { RecipeDetailsPageComponent } from './components/recipe-details-page/recipe-details-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { RecipeService } from './services/recipe.service';
     WhatComponent,
     WhyComponent,
     NotfoundPageComponent,
+    RecipeDetailsPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { AddRecipesPageComponent } from './components/add-recipes-page/add-recip
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
+import { RecipeDetailsPageComponent } from './components/recipe-details-page/recipe-details-page.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'add',component: AddRecipesPageComponent},
   {path: 'about',component: AboutPageComponent},
   {path: 'login',component: LoginPageComponent},
+  {path: 'recipe-details/:id',component: RecipeDetailsPageComponent},
   {path: '**',component: NotfoundPageComponent}
 ];
 

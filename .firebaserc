@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mypamilyarecipes": {
+      "hosting": {
+        "pamilyaRecipes": [
+          "mypamilyarecipes"
+        ]
+      }
+    }
+  }
+}

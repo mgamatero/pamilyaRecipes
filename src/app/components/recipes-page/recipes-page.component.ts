@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { analytics } from 'firebase';
+import { Router } from '@angular/router';
+
 import { RecipeService } from '../../services/recipe.service';
-import {Recipe} from '../../models/recipe';
+import { Recipe } from '../../models/recipe';
 
 // var config = {
 //   apiKey: 'AIzaSyDlVCaMD83-3m4dR5UEo1ylMwdg7enUgFE',
@@ -24,7 +26,7 @@ import {Recipe} from '../../models/recipe';
 })
 export class RecipesPageComponent implements OnInit {
   items: Observable<Recipe[]>;
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private router: Router) {
     this.db
       .collection('recipes')
       .snapshotChanges()
@@ -41,7 +43,8 @@ export class RecipesPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  recipeDetailsClick(itemId){
-    console.log(itemId)
+  recipeDetailsClick(itemId) {
+    console.log(itemId);
+    this.router.navigate(['recipe-details/',itemId])
   }
 }

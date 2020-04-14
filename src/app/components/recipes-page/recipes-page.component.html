@@ -1,16 +1,16 @@
 <section class="recipes">
-  <div class="container">
-    <div class="recipes-title text-center p-3">Pamilya Recipes</div>
+  <div class="container py-4">
+    <div class="recipes-title text-center p-2">Pamilya Recipes</div>
     <div class="row">
       <!-- <div class="col-4"> -->
         <!-- cards -->
         <div *ngFor="let item of items" class="col-4-md">
-          <div class="card recipe-card m-2 " style="width: 15rem;">
+          <div class="card recipe-card m-2" style="width: 15rem;">
             <img class="card-img-top recipe-img" src={{item.image}} alt="Card image cap">
             <div class="card-body recipe-card-body">
               <h5 class="card-title recipe-card-title-text">{{item.name}}</h5>
               <p class="card-text recipe-text"> by {{item.addedBy}}</p>
-              <div class="btn btn-primary btn-recipe-details" (click)="recipeDetailsClick(item.id)">Details</div>
+              <div class="btn btn-primary btn-block btn-recipe-details" (click)="recipeDetailsClick(item.id)">Details</div>
             </div>
           </div>
         </div>
