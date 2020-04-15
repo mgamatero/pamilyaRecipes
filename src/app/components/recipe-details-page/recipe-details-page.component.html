@@ -1,2 +1,43 @@
-<p>Recipe details</p>
-{{recipeId}}
+<section class="recipe-details p-3">
+  <div class="container">
+
+    <!-- <div class="col-3"><img src={{indivRecipes$.image}} alt="" class="img-fluid img-thumbnail recipe-details-img"></div>
+    <div class="col-9 recipe-details-text text-center align-middle">{{indivRecipes$.name}}</div> -->
+
+    <div class="card recipe-card" style="width: 100%">
+
+      <div class="title-description-wrapper text-center p-4">
+        <h3>{{indivRecipes$.name}}</h3>
+        <p class="lead">by {{indivRecipes$.addedBy}}</p>
+      </div>
+      <div class="recipe-image">
+        <img class="img-fluid border" src={{indivRecipes$.image}} alt="Card image cap">
+      </div>
+
+      <div class="card-body">
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h4>Ingredients:</h4>
+        </li>
+        <div *ngFor="let ingredient of indivRecipes$.ingredients">
+          <li class="list-group-item">{{ingredient}}</li>
+        </div>
+      </ul>
+      <br>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h4>Instructions:</h4>
+        </li>
+        <div *ngFor="let instruction of indivRecipes$.instructions; let i=index">
+          <li class="list-group-item">{{i+1}}) {{instruction}}</li>
+        </div>
+      </ul>
+      <div class="card-body">
+        <a href="/recipes" class="card-link">Back to Recipes</a>
+      </div>
+    </div>
+  </div>
+
+
+</section>
