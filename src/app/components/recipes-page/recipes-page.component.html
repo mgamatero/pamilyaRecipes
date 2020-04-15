@@ -2,22 +2,19 @@
   <div class="container py-4">
     <div class="recipes-title text-center p-2">Pamilya Recipes</div>
     <div class="row">
-
-        <!-- cards -->
-        <div *ngFor="let oneRecipe$ of allRecipes$" class="col-4-md">
-          <div class="card recipe-card m-2" style="width: 15rem;">
-            <img class="card-img-top recipe-img" src={{oneRecipe$.image}} alt="Card image cap">
-            <div class="card-body recipe-card-body">
-              <h5 class="card-title recipe-card-title-text">{{oneRecipe$.name}}</h5>
-              <p class="card-text recipe-text"> by {{oneRecipe$.addedBy}}</p>
-              <div class="btn btn-primary btn-block btn-recipe-details" (click)="recipeDetailsClick(oneRecipe$.id)">Details</div>
-            </div>
+      <!-- cards -->
+      <div *ngFor="let oneRecipe$ of allRecipes$" class="col-md-4 p-3">
+        <div class="card recipe-card">
+          <img class="card-img-top recipe-img" src={{oneRecipe$.image}} alt="Card image cap">
+          <div class="card-body recipe-card-body">
+            <h5 class="card-title recipe-card-title-text">{{oneRecipe$.name}}</h5>
+            <p class="card-text recipe-text"> by {{oneRecipe$.addedBy}}</p>
+            <div class="btn btn-primary btn-block btn-recipe-details" (click)="recipeDetailsClick(oneRecipe$.id)">
+              Details</div>
           </div>
         </div>
-        <!-- end cards -->
       </div>
+      <!-- end cards -->
     </div>
-  <!-- </div> -->
-
-
+  </div>
 </section>

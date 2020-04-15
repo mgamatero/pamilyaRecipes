@@ -17,3 +17,7 @@ background-color: wheat;
   font-size: 1.7rem;
   font-weight: bolder;
 }
+
+.recipe-detail-img{
+  min-width: 100%;
+}

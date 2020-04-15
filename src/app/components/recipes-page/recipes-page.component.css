@@ -7,10 +7,6 @@
   background-size: cover;
   border: none;
   border-radius: 1em;
-
-  /* Add the blur effect */
-  /* filter: blur(3px);
-  -webkit-filter: blur(3px); */
 }
 
 .recipes-title{
@@ -31,13 +27,9 @@
 
 .recipe-card-title-text{
   font-family: 'Lato', sans-serif;
-  /* font-weight: bold; */
   font-size: 1.8rem;
   color:wheat;
 }
 .recipe-text{
-  /* font-family: 'Lato', sans-serif; */
-  /* font-weight: bold; */
-  /* font-size: 1.8rem; */
   color:wheat;
 }
