@@ -25,13 +25,13 @@
     </div>
     <ul class="footer-links-wrapper">
       <li class="footer-links">
-        <a href="#" class="footer-link-item">Home</a>
+        <a href="#" class="footer-link-item" routerLink="home" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">Home</a>
       </li>
       <li class="footer-links">
-        <a href="#" class="footer-link-item">Recipes</a>
+        <a href="#" class="footer-link-item" routerLink="recipes" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">Recipes</a>
       </li>
       <li class="footer-links">
-        <a href="#" class="footer-link-item">About</a>
+        <a href="#" class="footer-link-item" routerLink="about" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">About</a>
       </li>
     </ul>
   </div>
