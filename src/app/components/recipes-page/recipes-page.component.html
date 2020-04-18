@@ -1,9 +1,83 @@
 <section class="recipes">
   <div class="container py-4">
     <div class="recipes-title text-center p-2">Pamilya Recipes</div>
+    <!-- MAIN DISHES -->
+    <h3 class="recipe-text pt-2">Main Dishes</h3>
+    <div *ngIf="mainDishRecipes$.length == 0">
+      <p class="text-danger">No main dishes available</p>
+    </div>
     <div class="row">
       <!-- cards -->
-      <div *ngFor="let oneRecipe$ of allRecipes$" class="col-md-4 p-3">
+      <div *ngFor="let oneRecipe$ of mainDishRecipes$" class="col-md-4 p-3">
+        <div class="card recipe-card">
+          <img class="card-img-top recipe-img" src={{oneRecipe$.image}} alt="Card image cap">
+          <div class="card-body recipe-card-body">
+            <h5 class="card-title recipe-card-title-text">{{oneRecipe$.name}}</h5>
+            <p class="card-text recipe-text"> by {{oneRecipe$.addedBy}}</p>
+            <p class="card-text text-light">{{oneRecipe$.type}}</p>
+            <div class="btn btn-primary btn-block btn-recipe-details" (click)="recipeDetailsClick(oneRecipe$.id)">
+              Details</div>
+          </div>
+        </div>
+      </div>
+      <!-- end cards -->
+    </div>
+
+    <!-- DESSERTS -->
+    <h3 class="recipe-text pt-2">Desserts</h3>
+    <div *ngIf="dessertRecipes$.length == 0">
+      <p class="text-danger">No desserts available</p>
+    </div>
+    <div class="row">
+      <!-- cards -->
+      <div *ngFor="let oneRecipe$ of dessertRecipes$" class="col-md-4 p-3">
+        <div class="card recipe-card">
+          <img class="card-img-top recipe-img" src={{oneRecipe$.image}} alt="Card image cap">
+          <div class="card-body recipe-card-body">
+            <h5 class="card-title recipe-card-title-text">{{oneRecipe$.name}}</h5>
+            <p class="card-text recipe-text"> by {{oneRecipe$.addedBy}}</p>
+            <p class="card-text text-light">{{oneRecipe$.type}}</p>
+            <div class="btn btn-primary btn-block btn-recipe-details" (click)="recipeDetailsClick(oneRecipe$.id)">
+              Details</div>
+          </div>
+        </div>
+      </div>
+      <!-- end cards -->
+    </div>
+
+    <!-- APPETIZERS -->
+    <h3 class="recipe-text pt-2">Appetizers</h3>
+    <div *ngIf="appetizerRecipes$.length == 0">
+      <p class="text-danger">No appetizers available</p>
+    </div>
+    <div class="row">
+      <!-- cards -->
+      <div *ngFor="let oneRecipe$ of appetizerRecipes$" class="col-md-4 p-3">
+        <div class="card recipe-card">
+          <img class="card-img-top recipe-img" src={{oneRecipe$.image}} alt="Card image cap">
+          <div class="card-body recipe-card-body">
+            <h5 class="card-title recipe-card-title-text">{{oneRecipe$.name}}</h5>
+            <p class="card-text recipe-text"> by {{oneRecipe$.addedBy}}</p>
+            <p class="card-text text-light">{{oneRecipe$.type}}</p>
+            <div class="btn btn-primary btn-block btn-recipe-details" (click)="recipeDetailsClick(oneRecipe$.id)">
+              Details</div>
+          </div>
+        </div>
+      </div>
+      <!-- end cards -->
+    </div>
+
+    <!--OTHER -->
+    <h3 class="recipe-text pt-2">Other</h3>
+    <div *ngIf="otherRecipes$.length == 0">
+      <p class="text-danger">No recipes available</p>
+    </div>
+    <div class="row">
+      <!-- cards -->
+      <div *ngFor="let oneRecipe$ of otherRecipes$" class="col-md-4 p-3">
+        <div *ngIf=!oneRecipe$>
+          <p>Empty</p>
+        </div>
         <div class="card recipe-card">
           <img class="card-img-top recipe-img" src={{oneRecipe$.image}} alt="Card image cap">
           <div class="card-body recipe-card-body">

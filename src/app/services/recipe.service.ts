@@ -21,7 +21,28 @@ export class RecipeService {
 
   //  -----------------------------  all recipes  --------------------------------------
   getAllRecipes() {
-    return this.afs.collection('recipes').snapshotChanges();
+    return this.afs.collection('recipes',
+      ref=>ref.orderBy('name')).snapshotChanges();
+  }
+  //  -----------------------------  all recipes  --------------------------------------
+  getMainDishRecipes() {
+    return this.afs.collection('recipes',
+      ref=>ref.where('type','==','Main dish')).snapshotChanges();
+  }
+  //  -----------------------------  all recipes  --------------------------------------
+  getDessertRecipes() {
+    return this.afs.collection('recipes',
+    ref=>ref.where('type','==','Dessert')).snapshotChanges();
+  }
+  //  -----------------------------  all recipes  --------------------------------------
+  getAppetizerRecipes() {
+    return this.afs.collection('recipes',
+    ref=>ref.where('type','==','Appetizer')).snapshotChanges();
+  }
+  //  -----------------------------  all recipes  --------------------------------------
+  getOtherRecipes() {
+    return this.afs.collection('recipes',
+    ref=>ref.where('type','==','Other')).snapshotChanges();
   }
 
   // ------------------------------  get 1 recipe based on ID --------------------------
