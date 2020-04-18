@@ -1,52 +1,71 @@
 <section class="add-edit-recipes p-4">
   <div class="container">
+    <div class="col-6">
 
-    <form>
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group">
-            <label for="recipeName">Recipe Name</label>
-            <input type="text" class="form-control" id="recipeName" aria-describedby="recipeName" placeholder="Recipe name">
+
+      <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="recipeName">Recipe Name</label>
+              <input type="text" formControlName="name" class="form-control" id="recipeName"
+                aria-describedby="recipeName" placeholder="Recipe name">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="recipeOwner">Added by:</label>
+              <input type="text" formControlName="addedBy" class="form-control" id="recipeOwner"
+                aria-describedby="recipeOwner" placeholder="Recipe owner">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="recipeImage">Image</label>
+              <input type="text" formControlName="image" class="form-control" id="recipeImage"
+                aria-describedby="recipeImage" placeholder="Recipe image url">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="recipeType">Dish Type</label>
+              <select class="form-control" id="recipeType" formControlName="type">
+                <option>Main dish</option>
+                <option>Appetizer</option>
+                <option>Dessert</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" formArrayName="ingredients">
+          <h4>Enter new ingredient</h4>
+          <button class="btn btn-success btn-small" (click)="addNewIngredient()">New ingredient</button>
+          <div *ngFor="let oneIngredient of ingredients.controls;let i=index">
+            <label for="">Ingredient #{{i+1}}</label>
+            <input type="text" [formControlName]="i">
           </div>
 
         </div>
-        <div class="col-6">
-              <div class="form-group">
-                <label for="recipeOwner">Recipe Owner</label>
-                <input type="text" class="form-control" id="recipeOwner" aria-describedby="recipeOwner" placeholder="Recipe owner">
-              </div>
-
+        <div class="form-group">
+          <label for="recipeInstructions">Instructions</label>
+          <input type="text" formControlName="instructions" class="form-control" id="recipeInstructions"
+            aria-describedby="recipeInstructions" placeholder="Instructions">
         </div>
-      </div>
-      <div class="form-group">
-        <label for="recipeType">Dish Type</label>
-        <select class="form-control" id="recipeType">
-          <option>Main</option>
-          <option>Appetizer</option>
-          <option>Dessert</option>
-          <option>Beverage</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="recipeImage">Image</label>
-        <input type="text" class="form-control" id="recipeImage" aria-describedby="recipeImage" placeholder="Recipe image url">
-      </div>
-      <div class="form-group">
-        <label for="recipeIngredients">Ingredients</label>
-        <input type="text" class="form-control" id="recipeIngredients" aria-describedby="recipeIngredients" placeholder="Ingredients">
-      </div>
-      <div class="form-group">
-        <label for="recipeInstructions">Instructions</label>
-        <input type="text" class="form-control" id="recipeInstructions" aria-describedby="recipeInstructions" placeholder="Instructions">
-      </div>
-      <div class="form-group">
-        <label for="recipeImage">Image</label>
-        <input type="text" class="form-control" id="recipeImage" aria-describedby="recipeImage" placeholder="Recipe image url">
-      </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!recipeForm.valid">Submit</button>
+      </form>
+    </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="col-6">
+      {{this.recipeForm.value|json}}
+    </div>
+
   </div>
 
 
