@@ -44,20 +44,33 @@
             </div>
           </div>
         </div>
-        <div class="form-group" formArrayName="ingredients">
-          <h4>Enter new ingredient</h4>
-          <button class="btn btn-success btn-small" (click)="addNewIngredient()">New ingredient</button>
-          <div *ngFor="let oneIngredient of ingredients.controls;let i=index">
-            <label for="">Ingredient #{{i+1}}</label>
-            <input type="text" [formControlName]="i">
-          </div>
 
+        <div class="form-group" formArrayName="ingredients">
+          <label for="ingredients">Ingredients</label>
+          <div *ngFor="let oneIngredient of ingredients.controls;let i=index">
+            <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
+          </div>
+          <button class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle"></i>Add new
+            ingredient</button>
         </div>
-        <div class="form-group">
+
+        <div class="form-group" formArrayName="instructions">
+          <label for="instructions">Instructions</label>
+          <div *ngFor="let oneInstruction of instructions.controls;let i=index">
+            <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
+          </div>
+          <button class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle"></i>Add new
+            instruction</button>
+        </div>
+
+
+
+
+        <!-- <div class="form-group">
           <label for="recipeInstructions">Instructions</label>
           <input type="text" formControlName="instructions" class="form-control" id="recipeInstructions"
             aria-describedby="recipeInstructions" placeholder="Instructions">
-        </div>
+        </div> -->
         <button type="submit" class="btn btn-primary" [disabled]="!recipeForm.valid">Submit</button>
       </form>
     </div>

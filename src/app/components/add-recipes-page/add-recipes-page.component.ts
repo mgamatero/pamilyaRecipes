@@ -19,10 +19,13 @@ export class AddRecipesPageComponent implements OnInit {
   ngOnInit(): void {
     this.recipeForm = this.fb.group({
       name: ['', Validators.required],
-      addedBy: [''],
-      type: [''],
+      addedBy: ['', Validators.required],
+      type: ['', Validators.required],
       image:[''],
       ingredients:this.fb.array([
+        this.fb.control('')
+      ]),
+      instructions:this.fb.array([
         this.fb.control('')
       ])
     })
@@ -34,6 +37,14 @@ get ingredients(){
 
   addNewIngredient(){
 this.ingredients.push(this.fb.control(''));
+}
+
+get instructions(){
+  return this.recipeForm.get('ingredients') as FormArray;
+}
+
+  addNewInstruction(){
+this.instructions.push(this.fb.control(''));
 }
 
 
