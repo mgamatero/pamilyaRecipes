@@ -1,18 +1,17 @@
 .about{
   background-color:rgb(105, 105, 112);
-  min-height: 70vh;
-  position: relative;
+  min-height: 110vh;
+  /* position: relative; */
 }
 
 .about-wrapper{
-  position: absolute;
+  /* position: absolute;
   top:50%;
   left:50%;
-  transform: translate(-50%, -50%);
-
+  transform: translate(-50%, -50%); */
 }
 .about-icon{
-  max-width:200px;
+  max-width:150px;
 }
 
 .about-text{

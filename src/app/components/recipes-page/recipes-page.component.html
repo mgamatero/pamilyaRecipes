@@ -9,6 +9,7 @@
           <div class="card-body recipe-card-body">
             <h5 class="card-title recipe-card-title-text">{{oneRecipe$.name}}</h5>
             <p class="card-text recipe-text"> by {{oneRecipe$.addedBy}}</p>
+            <p class="card-text text-light">{{oneRecipe$.type}}</p>
             <div class="btn btn-primary btn-block btn-recipe-details" (click)="recipeDetailsClick(oneRecipe$.id)">
               Details</div>
           </div>
