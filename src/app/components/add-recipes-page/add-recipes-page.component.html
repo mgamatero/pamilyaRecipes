@@ -50,7 +50,7 @@
           <div *ngFor="let oneIngredient of ingredients.controls;let i=index">
             <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
           </div>
-          <button class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle"></i>Add new
+          <button class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle p-2"></i>Add new
             ingredient</button>
         </div>
 
@@ -59,19 +59,11 @@
           <div *ngFor="let oneInstruction of instructions.controls;let i=index">
             <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
           </div>
-          <button class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle"></i>Add new
+          <button class="btn btn-outline" (click)="addNewInstruction()"><i class="fas fa-plus-circle p-2"></i>Add new
             instruction</button>
         </div>
-
-
-
-
-        <!-- <div class="form-group">
-          <label for="recipeInstructions">Instructions</label>
-          <input type="text" formControlName="instructions" class="form-control" id="recipeInstructions"
-            aria-describedby="recipeInstructions" placeholder="Instructions">
-        </div> -->
-        <button type="submit" class="btn btn-primary" [disabled]="!recipeForm.valid">Submit</button>
+        <button type="submit" class="btn btn-success m-1" [disabled]="!recipeForm.valid">Submit</button>
+        <button type="submit" class="btn btn-danger m-1" (click)="clearForm()">Clear Form</button>
       </form>
     </div>
 

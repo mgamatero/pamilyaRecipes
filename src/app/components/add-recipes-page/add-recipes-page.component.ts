@@ -4,7 +4,7 @@ import {
   FormControl,
   FormBuilder,
   Validators,
-  FormArray
+  FormArray,
 } from '@angular/forms';
 
 @Component({
@@ -21,36 +21,45 @@ export class AddRecipesPageComponent implements OnInit {
       name: ['', Validators.required],
       addedBy: ['', Validators.required],
       type: ['', Validators.required],
-      image:[''],
-      ingredients:this.fb.array([
-        this.fb.control('')
-      ]),
-      instructions:this.fb.array([
-        this.fb.control('')
-      ])
-    })
+      image: [''],
+      ingredients: this.fb.array([this.fb.control('')]),
+      instructions: this.fb.array([this.fb.control('')]),
+    });
   }
 
-get ingredients(){
-  return this.recipeForm.get('ingredients') as FormArray;
-}
+  get ingredients() {
+    return this.recipeForm.get('ingredients') as FormArray;
+  }
 
-  addNewIngredient(){
-this.ingredients.push(this.fb.control(''));
-}
+  addNewIngredient() {
+    this.ingredients.push(this.fb.control(''));
+  }
 
-get instructions(){
-  return this.recipeForm.get('ingredients') as FormArray;
-}
+  get instructions() {
+    return this.recipeForm.get('instructions') as FormArray;
+  }
 
-  addNewInstruction(){
-this.instructions.push(this.fb.control(''));
-}
-
-
-
+  addNewInstruction() {
+    this.instructions.push(this.fb.control(''));
+  }
 
   onSubmit() {
-    console.warn(this.recipeForm.value.name)
+    console.warn(this.recipeForm.value.name);
+  }
+
+  clearForm() {
+    this.recipeForm.reset();
+    const ingredientControls = <FormArray>(
+      this.recipeForm.controls['ingredients']
+    );
+    for (let i = ingredientControls.length - 1; i >= 0; i--) {
+      ingredientControls.removeAt(i);
+    }
+    const instructionControls = <FormArray>(
+      this.recipeForm.controls['instructions']
+    );
+    for (let i = instructionControls.length - 1; i >= 0; i--) {
+      instructionControls.removeAt(i);
+    }
   }
 }
