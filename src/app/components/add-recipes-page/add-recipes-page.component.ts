@@ -6,6 +6,10 @@ import {
   Validators,
   FormArray,
 } from '@angular/forms';
+import { RecipeService} from '../../services/recipe.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Router} from '@angular/router';
+import {Recipe} from '../../models/recipe';
 
 @Component({
   selector: 'app-add-recipes-page',
@@ -14,17 +18,17 @@ import {
 })
 export class AddRecipesPageComponent implements OnInit {
   recipeForm: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private db: AngularFirestore, private router: Router, private recipeService:RecipeService) {}
 
   ngOnInit(): void {
-    this.recipeForm = this.fb.group({
+    this.recipeForm= this.fb.group({
       name: ['', Validators.required],
       addedBy: ['', Validators.required],
       type: ['', Validators.required],
-      image: [''],
-      ingredients: this.fb.array([this.fb.control('')]),
-      instructions: this.fb.array([this.fb.control('')]),
-    });
+      image: ['',Validators.required],
+      ingredients: this.fb.array([this.fb.control('',Validators.required)]),
+      instructions: this.fb.array([this.fb.control('',Validators.required)]),
+    })
   }
 
   get ingredients() {
@@ -45,6 +49,10 @@ export class AddRecipesPageComponent implements OnInit {
 
   onSubmit() {
     console.warn(this.recipeForm.value.name);
+    this.recipeService.addRecipe(this.recipeForm.value);
+    this.clearForm();
+    alert('Recipe added');
+    this.router.navigate(['recipes']);
   }
 
   clearForm() {

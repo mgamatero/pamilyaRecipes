@@ -49,6 +49,20 @@ export class RecipeService {
   getRecipeByID(id: string) {
     return this.afs.doc(`recipes/${id}`).snapshotChanges();
   }
+
+  //------------------------------  add recipe ---------------------------------------
+  addRecipe(recipeFromForm: any){
+    // workaround for empty doc issue
+    const id = this.afs.createId();
+
+    this.afs
+    .collection('recipes')
+    .doc(id)
+    .set(recipeFromForm as Recipe)
+    .then(()=>{
+      alert(`${recipeFromForm} added`)
+    })
+  }
 }
 
 // export class RecipeService {
