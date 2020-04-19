@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RecipesPageComponent } from './components/recipes-page/recipes-page.component';
 import { AddRecipesPageComponent } from './components/add-recipes-page/add-recipes-page.component';
+import { EditDeleteRecipesPageComponent } from './components/edit-delete-recipes-page/edit-delete-recipes-page.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'home',component: HomePageComponent},
   {path: 'recipes',component: RecipesPageComponent},
   {path: 'add',component: AddRecipesPageComponent},
+  {path: 'edit-delete',component: EditDeleteRecipesPageComponent},
   {path: 'about',component: AboutPageComponent},
   {path: 'login',component: LoginPageComponent},
   {path: 'recipe-details/:id',component: RecipeDetailsPageComponent},

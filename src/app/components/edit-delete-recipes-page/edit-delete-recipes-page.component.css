@@ -1,0 +1,9 @@
+.edit-delete-recipes{
+  min-height: 75vh;
+  background-color: rgb(210, 230, 196);
+}
+
+.text-title-edit-delete{
+  font-size: 2rem;
+
+}

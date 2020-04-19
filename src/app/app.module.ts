@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
 
 import { RecipeService } from './services/recipe.service';
 import { RecipeDetailsPageComponent } from './components/recipe-details-page/recipe-details-page.component';
+import { EditDeleteRecipesPageComponent } from './components/edit-delete-recipes-page/edit-delete-recipes-page.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RecipeDetailsPageComponent } from './components/recipe-details-page/rec
     WhyComponent,
     NotfoundPageComponent,
     RecipeDetailsPageComponent,
+    EditDeleteRecipesPageComponent,
   ],
   imports: [
     BrowserModule,

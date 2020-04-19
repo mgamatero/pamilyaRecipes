@@ -16,6 +16,8 @@ export class RecipeService {
   recipesCollection: AngularFirestoreCollection<Recipe>;
   recipes: Observable<Recipe[]>;
   recipeByID: Observable<Recipe>;
+  recipeDocument: AngularFirestoreDocument<Recipe>;
+
 
   constructor(public afs: AngularFirestore) {}
 
@@ -63,6 +65,16 @@ export class RecipeService {
       alert(`${recipeFromForm} added`)
     })
   }
+
+//-------------------------------- delete recipe --------------------------------------
+deleteRecipe(recipe:Recipe){
+  this.recipeDocument = this.afs.doc(`recipe/${recipe.id}`);
+  this.recipeDocument.delete();
+}
+
+
+
+
 }
 
 // export class RecipeService {
