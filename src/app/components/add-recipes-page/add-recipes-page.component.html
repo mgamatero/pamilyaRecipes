@@ -3,7 +3,7 @@
     <div class="col-6">
 
 
-      <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="recipeForm">
         <div class="row">
           <div class="col">
             <div class="form-group">
@@ -62,7 +62,7 @@
           <div class="btn btn-outline" (click)="addNewInstruction()"><i class="fas fa-plus-circle p-2"></i>Add new
             instruction</div>
         </div>
-        <button type="submit" class="btn btn-success m-1" [disabled]="!recipeForm.valid">Submit</button>
+        <button type="submit" class="btn btn-success m-1" (click)="submitForm()" [disabled]="!recipeForm.valid">Submit</button>
         <button type="submit" class="btn btn-danger m-1" (click)="clearForm()">Clear Form</button>
       </form>
     </div>

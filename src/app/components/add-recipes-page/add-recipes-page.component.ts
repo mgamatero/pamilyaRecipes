@@ -47,7 +47,7 @@ export class AddRecipesPageComponent implements OnInit {
     this.instructions.push(this.fb.control(''));
   }
 
-  onSubmit() {
+  submitForm() {
     console.warn(this.recipeForm.value.name);
     this.recipeService.addRecipe(this.recipeForm.value);
     this.clearForm();
