@@ -18,33 +18,37 @@ export class RecipeService {
   recipeByID: Observable<Recipe>;
   recipeDocument: AngularFirestoreDocument<Recipe>;
 
-
   constructor(public afs: AngularFirestore) {}
 
   //  -----------------------------  all recipes  --------------------------------------
   getAllRecipes() {
-    return this.afs.collection('recipes',
-      ref=>ref.orderBy('name')).snapshotChanges();
+    return this.afs
+      .collection('recipes', (ref) => ref.orderBy('name'))
+      .snapshotChanges();
   }
   //  -----------------------------  all recipes  --------------------------------------
   getMainDishRecipes() {
-    return this.afs.collection('recipes',
-      ref=>ref.where('type','==','Main dish')).snapshotChanges();
+    return this.afs
+      .collection('recipes', (ref) => ref.where('type', '==', 'Main dish'))
+      .snapshotChanges();
   }
   //  -----------------------------  all recipes  --------------------------------------
   getDessertRecipes() {
-    return this.afs.collection('recipes',
-    ref=>ref.where('type','==','Dessert')).snapshotChanges();
+    return this.afs
+      .collection('recipes', (ref) => ref.where('type', '==', 'Dessert'))
+      .snapshotChanges();
   }
   //  -----------------------------  all recipes  --------------------------------------
   getAppetizerRecipes() {
-    return this.afs.collection('recipes',
-    ref=>ref.where('type','==','Appetizer')).snapshotChanges();
+    return this.afs
+      .collection('recipes', (ref) => ref.where('type', '==', 'Appetizer'))
+      .snapshotChanges();
   }
   //  -----------------------------  all recipes  --------------------------------------
   getOtherRecipes() {
-    return this.afs.collection('recipes',
-    ref=>ref.where('type','==','Other')).snapshotChanges();
+    return this.afs
+      .collection('recipes', (ref) => ref.where('type', '==', 'Other'))
+      .snapshotChanges();
   }
 
   // ------------------------------  get 1 recipe based on ID --------------------------
@@ -53,28 +57,32 @@ export class RecipeService {
   }
 
   //------------------------------  add recipe ---------------------------------------
-  addRecipe(recipeFromForm: any){
+  addRecipe(recipeFromForm: any) {
     // workaround for empty doc issue
     const id = this.afs.createId();
 
     this.afs
-    .collection('recipes')
-    .doc(id)
-    .set(recipeFromForm as Recipe)
-    .then(()=>{
-      alert(`${recipeFromForm} added`)
-    })
+      .collection('recipes')
+      .doc(id)
+      .set(recipeFromForm as Recipe)
+      .then(() => {
+        alert(`${recipeFromForm} added`);
+      });
   }
 
-//-------------------------------- delete recipe --------------------------------------
-deleteRecipe(recipe:Recipe){
-  this.recipeDocument = this.afs.doc(`recipe/${recipe.id}`);
-  this.recipeDocument.delete();
-}
-
-
-
-
+  //-------------------------------- delete recipe --------------------------------------
+  deleteRecipe(recipe: Recipe) {
+    alert(`delete ${recipe.id}`);
+    // this.recipeDocument = this.afs.doc(`recipe/${recipe.id}`);
+    return this.afs.doc(`recipes/${recipe.id}`)
+      .delete()
+      .then(() => {
+        alert(`${recipe.name} successfully deleted!`);
+      })
+      .catch((e) => {
+        alert('Error: ');
+      })
+  }
 }
 
 // export class RecipeService {

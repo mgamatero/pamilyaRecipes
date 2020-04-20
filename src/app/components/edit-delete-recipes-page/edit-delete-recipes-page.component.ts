@@ -19,6 +19,7 @@ export class EditDeleteRecipesPageComponent implements OnInit {
   dessertRecipes$: Recipe[];
   appetizerRecipes$: Recipe[];
   otherRecipes$: Recipe[];
+
   constructor(private db: AngularFirestore, private router: Router, private recipeService:RecipeService ) {
     this.recipeService.getMainDishRecipes().subscribe(data => {
       this.mainDishRecipes$ = data.map(e=>{
@@ -44,7 +45,7 @@ export class EditDeleteRecipesPageComponent implements OnInit {
         } as Recipe
       })
     })
-    this.recipeService.getAppetizerRecipes().subscribe(data => {
+    this.recipeService.getOtherRecipes().subscribe(data => {
       this.otherRecipes$ = data.map(e=>{
         return{
           id: e.payload.doc.id,
@@ -57,4 +58,9 @@ export class EditDeleteRecipesPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteRecipe(recipe:Recipe){
+    if(confirm(`Are you sure you want to delete ${recipe.name} by ${recipe.addedBy}?`)){
+    this.recipeService.deleteRecipe(recipe);
+    }
+  }
 }

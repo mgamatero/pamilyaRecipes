@@ -13,7 +13,7 @@
             </div>
             <div>
               <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-              <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+              <button class="btn btn-danger" (click)="deleteRecipe(main)"><i class="fas fa-trash"></i></button>
             </div>
           </button>
         </div>
@@ -27,7 +27,7 @@
             </div>
             <div>
               <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-              <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+              <button class="btn btn-danger" (click)="deleteRecipe(dessert)"><i class="fas fa-trash"></i></button>
             </div>
           </button>
         </div>
@@ -42,7 +42,7 @@
               </div>
               <div>
                 <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                <button class="btn btn-danger" (click)="deleteRecipe(appetizer)"><i class="fas fa-trash"></i></button>
               </div>
             </button>
           </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div>
                   <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                  <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                  <button class="btn btn-danger" (click)="deleteRecipe(other)"><i class="fas fa-trash"></i></button>
                 </div>
               </button>
             </div>

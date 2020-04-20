@@ -23,17 +23,7 @@ export class RecipesPageComponent implements OnInit {
   otherRecipes$: Recipe[];
   constructor(private db: AngularFirestore, private router: Router, private recipeService:RecipeService ) {
 
-    // this.recipeService.getAllRecipes().subscribe(data => {
-    //   // console.log(data)
-    //   this.allRecipes$ = data.
-    //   map(e=>{
-    //     return{
-    //       id: e.payload.doc.id,
-    //       ...e.payload.doc.data() as Recipe
-    //     } as Recipe
-    //   })
-    // })
-    this.recipeService.getMainDishRecipes().subscribe(data => {
+       this.recipeService.getMainDishRecipes().subscribe(data => {
       this.mainDishRecipes$ = data.map(e=>{
         return{
           id: e.payload.doc.id,
@@ -57,7 +47,7 @@ export class RecipesPageComponent implements OnInit {
         } as Recipe
       })
     })
-    this.recipeService.getAppetizerRecipes().subscribe(data => {
+    this.recipeService.getOtherRecipes().subscribe(data => {
       this.otherRecipes$ = data.map(e=>{
         return{
           id: e.payload.doc.id,
@@ -65,6 +55,17 @@ export class RecipesPageComponent implements OnInit {
         } as Recipe
       })
     })
+
+     // this.recipeService.getAllRecipes().subscribe(data => {
+    //   // console.log(data)
+    //   this.allRecipes$ = data.
+    //   map(e=>{
+    //     return{
+    //       id: e.payload.doc.id,
+    //       ...e.payload.doc.data() as Recipe
+    //     } as Recipe
+    //   })
+    // })
   };
 
 
