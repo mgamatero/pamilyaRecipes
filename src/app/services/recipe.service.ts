@@ -72,16 +72,15 @@ export class RecipeService {
 
   //-------------------------------- delete recipe --------------------------------------
   deleteRecipe(recipe: Recipe) {
-    alert(`delete ${recipe.id}`);
-    // this.recipeDocument = this.afs.doc(`recipe/${recipe.id}`);
-    return this.afs.doc(`recipes/${recipe.id}`)
+    return this.afs
+      .doc(`recipes/${recipe.id}`)
       .delete()
       .then(() => {
         alert(`${recipe.name} successfully deleted!`);
       })
       .catch((e) => {
         alert('Error: ');
-      })
+      });
   }
 }
 
