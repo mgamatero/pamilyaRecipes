@@ -5,5 +5,10 @@
 
 .text-title-edit-delete{
   font-size: 2rem;
+}
 
+.edit-delete-display-icon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
