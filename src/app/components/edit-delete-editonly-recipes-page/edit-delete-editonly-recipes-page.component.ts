@@ -39,7 +39,27 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
       // console.log(data.payload.data())
       // ...data.payload.doc.data() as Recipe
       this.indivRecipeToUpdate$ = data.payload.data() as Recipe;
-    });
+// console.log(this.indivRecipeToUpdate$)
+      // FormArray entries
+      // const ingredientControls = <FormArray>(
+        //   this.recipeForm.controls['ingredients']
+        // );
+        // for (let i = ingredientControls.length - 1; i >= 0; i--) {
+          //   console.log(ingredientControls[i].value);
+          // }
+
+          // this.recipeForm.setValue(this.indivRecipeToUpdate$);
+
+
+
+          this.recipeForm.get("name").setValue(this.indivRecipeToUpdate$.name)
+          this.recipeForm.get("addedBy").setValue(this.indivRecipeToUpdate$.addedBy)
+          this.recipeForm.get("image").setValue(this.indivRecipeToUpdate$.image)
+          this.recipeForm.get("type").setValue(this.indivRecipeToUpdate$.type)
+
+        });
+
+
   }
 
   ngOnInit(): void {
@@ -55,90 +75,56 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
 
   updateItem(recipe:Recipe){
     this.recipeService.updateRecipe(recipe);
-    // this.clearState();
   }
 
+  // methods for FormArrays in form
   get ingredients() {
   return this.recipeForm.get('ingredients') as FormArray;
 }
 
+// methods for FormArrays in form
 addNewIngredient() {
   this.ingredients.push(this.fb.control(''));
 }
 
+// methods for FormArrays in form
 get instructions() {
   return this.recipeForm.get('instructions') as FormArray;
 }
 
+// methods for FormArrays in form
 addNewInstruction() {
   this.instructions.push(this.fb.control(''));
 }
 
+
+
 submitForm() {
   console.warn(this.recipeForm.value.name);
   this.recipeService.addRecipe(this.recipeForm.value);
-  this.clearForm();
+  this.recipeForm.reset();
   alert('Recipe added');
   this.router.navigate(['recipes']);
 }
 
-clearForm() {
-  this.recipeForm.reset();
-  const ingredientControls = <FormArray>(
-    this.recipeForm.controls['ingredients']
-  );
-  for (let i = ingredientControls.length - 1; i >= 0; i--) {
-    ingredientControls.removeAt(i);
+cancelEdit() {
+  if(confirm(`Are you sure you want to cancel changes for ${this.indivRecipeToUpdate$.name} by ${this.indivRecipeToUpdate$.addedBy}?`)){
+    this.router.navigate(['edit-delete']);
   }
-  const instructionControls = <FormArray>(
-    this.recipeForm.controls['instructions']
-  );
-  for (let i = instructionControls.length - 1; i >= 0; i--) {
-    instructionControls.removeAt(i);
-  }
+  // this.recipeForm.reset();
+  // const ingredientControls = <FormArray>(
+  //   this.recipeForm.controls['ingredients']
+  // );
+  // for (let i = ingredientControls.length - 1; i >= 0; i--) {
+  //   ingredientControls.removeAt(i);
+  // }
+  // const instructionControls = <FormArray>(
+  //   this.recipeForm.controls['instructions']
+  // );
+  // for (let i = instructionControls.length - 1; i >= 0; i--) {
+  //   instructionControls.removeAt(i);
+  // }
 }
 }
 
 
-
-
-
-// get ingredients() {
-//   return this.recipeForm.get('ingredients') as FormArray;
-// }
-
-// addNewIngredient() {
-//   this.ingredients.push(this.fb.control(''));
-// }
-
-// get instructions() {
-//   return this.recipeForm.get('instructions') as FormArray;
-// }
-
-// addNewInstruction() {
-//   this.instructions.push(this.fb.control(''));
-// }
-
-// submitForm() {
-//   console.warn(this.recipeForm.value.name);
-//   this.recipeService.addRecipe(this.recipeForm.value);
-//   this.clearForm();
-//   alert('Recipe added');
-//   this.router.navigate(['recipes']);
-// }
-
-// clearForm() {
-//   this.recipeForm.reset();
-//   const ingredientControls = <FormArray>(
-//     this.recipeForm.controls['ingredients']
-//   );
-//   for (let i = ingredientControls.length - 1; i >= 0; i--) {
-//     ingredientControls.removeAt(i);
-//   }
-//   const instructionControls = <FormArray>(
-//     this.recipeForm.controls['instructions']
-//   );
-//   for (let i = instructionControls.length - 1; i >= 0; i--) {
-//     instructionControls.removeAt(i);
-//   }
-// }

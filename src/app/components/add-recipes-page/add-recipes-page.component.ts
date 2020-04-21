@@ -48,10 +48,8 @@ export class AddRecipesPageComponent implements OnInit {
   }
 
   submitForm() {
-    console.warn(this.recipeForm.value.name);
     this.recipeService.addRecipe(this.recipeForm.value);
     this.clearForm();
-    alert('Recipe added');
     this.router.navigate(['recipes']);
   }
 
