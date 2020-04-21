@@ -66,7 +66,7 @@ export class RecipeService {
       .doc(id)
       .set(recipeFromForm as Recipe)
       .then(() => {
-        alert(`${recipeFromForm} added`);
+        alert(`${recipeFromForm.name} added`);
       });
   }
 
@@ -84,14 +84,14 @@ export class RecipeService {
   }
 
   // ---------------------------------- update recipe --------------------------------------
-  updateRecipe(recipeFromForm:any){
-    // this.afs
-    // .collection('recipes')
-    // .doc(id)
-    // .set(recipeFromForm as Recipe)
-    // .then(() => {
-    //   alert(`${recipeFromForm} added`);
-    // });
+  updateRecipe(recipeFromForm:any, id){
+    this.afs
+    .collection('recipes')
+    .doc(id)
+    .set(recipeFromForm as Recipe)
+    .then(() => {
+      alert(`${recipeFromForm.name} updated`);
+    });
   }
 }
 
