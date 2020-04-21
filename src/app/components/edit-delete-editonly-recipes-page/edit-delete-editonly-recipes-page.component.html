@@ -1,1 +1,115 @@
-<p>{{indivRecipeToUpdate$|json}}</p>
+<!-- <p>{{indivRecipeToUpdate$|json}}</p> -->
+<section class="editonly-recipes">
+  <div class="text-title-lato text-center">
+    Edit Recipe
+  </div>
+<div class="row">
+  <div class="col-6 form-area text-center">.form-area
+
+    <div class="col">
+      <form [formGroup]="recipeForm">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="recipeName">Recipe Name</label>
+              <input type="text" formControlName="name" class="form-control" id="recipeName"
+                aria-describedby="recipeName" placeholder="Recipe name">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="recipeOwner">Added by:</label>
+              <input type="text" formControlName="addedBy" class="form-control" id="recipeOwner"
+                aria-describedby="recipeOwner" placeholder="Recipe owner">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="recipeImage">Image</label>
+              <input type="text" formControlName="image" class="form-control" id="recipeImage"
+                aria-describedby="recipeImage" placeholder="Recipe image url">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="recipeType">Dish Type</label>
+              <select class="form-control" id="recipeType" formControlName="type">
+                <option>Main dish</option>
+                <option>Appetizer</option>
+                <option>Dessert</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" formArrayName="ingredients">
+          <label for="ingredients">Ingredients</label>
+          <div *ngFor="let oneIngredient of ingredients.controls;let i=index">
+            <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
+          </div>
+          <div class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle p-2"></i>Add new
+            ingredient</div>
+        </div>
+
+        <div class="form-group" formArrayName="instructions">
+          <label for="instructions">Instructions</label>
+          <div *ngFor="let oneInstruction of instructions.controls;let i=index">
+            <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
+          </div>
+          <div class="btn btn-outline" (click)="addNewInstruction()"><i class="fas fa-plus-circle p-2"></i>Add new
+            instruction</div>
+        </div>
+        <button type="submit" class="btn btn-success m-1" (click)="submitForm()" [disabled]="!recipeForm.valid">Submit</button>
+        <button type="submit" class="btn btn-danger m-1" (click)="clearForm()">Clear Form</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-6 preview-area text-center">.preview-area
+    <div class="container">
+
+      <!-- <div class="col-3"><img src={{indivRecipes$.image}} alt="" class="img-fluid img-thumbnail recipe-details-img"></div>
+      <div class="col-9 recipe-details-text text-center align-middle">{{indivRecipes$.name}}</div> -->
+
+      <div class="card recipe-card" style="width: 100%">
+
+        <div class="title-description-wrapper text-center p-4">
+          <h3>{{recipeForm.value.name}}</h3>
+          <p class="lead">by {{recipeForm.value.addedBy}}</p>
+        </div>
+        <div class="recipe-image">
+          <img class="img-fluid border recipe-detail-img" src={{recipeForm.value.image}} alt="Card image cap">
+        </div>
+
+        <div class="card-body">
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h4>Ingredients:</h4>
+          </li>
+          <div *ngFor="let ingredient of recipeForm.value.ingredients">
+            <li class="list-group-item">{{ingredient}}</li>
+          </div>
+        </ul>
+        <br>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h4>Instructions:</h4>
+          </li>
+          <!-- <div *ngIf='recipeForm.value.instructions.length  < 0'> -->
+          <div *ngFor="let instruction of recipeForm.value.instructions; let i=index">
+            <li class="list-group-item">{{i+1}}) {{instruction}}</li>
+          </div>
+        <!-- </div> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
