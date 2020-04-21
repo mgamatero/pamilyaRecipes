@@ -63,4 +63,9 @@ export class EditDeleteRecipesPageComponent implements OnInit {
     this.recipeService.deleteRecipe(recipe);
     }
   }
+
+  editRecipeClick(itemId) {
+    console.log(itemId);
+    this.router.navigate(['edit-delete-editonly', itemId]);
+  }
 }

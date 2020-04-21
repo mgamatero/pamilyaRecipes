@@ -82,6 +82,17 @@ export class RecipeService {
         alert('Error: ');
       });
   }
+
+  // ---------------------------------- update recipe --------------------------------------
+  updateRecipe(recipeFromForm:any){
+    // this.afs
+    // .collection('recipes')
+    // .doc(id)
+    // .set(recipeFromForm as Recipe)
+    // .then(() => {
+    //   alert(`${recipeFromForm} added`);
+    // });
+  }
 }
 
 // export class RecipeService {

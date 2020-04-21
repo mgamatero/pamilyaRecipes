@@ -8,6 +8,7 @@ import { AboutPageComponent } from './components/about-page/about-page.component
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
 import { RecipeDetailsPageComponent } from './components/recipe-details-page/recipe-details-page.component';
+import { EditDeleteEditonlyRecipesPageComponent } from './components/edit-delete-editonly-recipes-page/edit-delete-editonly-recipes-page.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'recipes',component: RecipesPageComponent},
   {path: 'add',component: AddRecipesPageComponent},
   {path: 'edit-delete',component: EditDeleteRecipesPageComponent},
+  {path: 'edit-delete-editonly/:id',component: EditDeleteEditonlyRecipesPageComponent},
   {path: 'about',component: AboutPageComponent},
   {path: 'login',component: LoginPageComponent},
   {path: 'recipe-details/:id',component: RecipeDetailsPageComponent},

@@ -6,13 +6,16 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <div class="text-title-lato font-weight-bold">Main Dish</div>
+        <div *ngIf="mainDishRecipes$.length == 0">
+          <p class="text-danger">None available</p>
+        </div>
         <div *ngFor="let main of mainDishRecipes$">
           <button class="btn btn-secondary btn-block text-left p-2 m-2 edit-delete-display-icon" disabled>
             <div>
               {{main.name}} <small class="text-warning">by {{main.addedBy}}</small>
             </div>
             <div>
-              <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-warning" (click)="editRecipeClick(main.id)"><i class="fas fa-edit"></i></button>
               <button class="btn btn-danger" (click)="deleteRecipe(main)"><i class="fas fa-trash"></i></button>
             </div>
           </button>
@@ -20,49 +23,60 @@
       </div>
       <div class="col-12 col-md-6">
         <div class="text-title-lato font-weight-bold">Dessert</div>
+        <div *ngIf="dessertRecipes$.length == 0">
+          <p class="text-danger">None available</p>
+        </div>
         <div *ngFor="let dessert of dessertRecipes$">
           <button class="btn btn-secondary btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
             <div>
               {{dessert.name}} <small class="text-warning">by {{dessert.addedBy}}</small>
             </div>
             <div>
-              <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-warning" (click)="editRecipeClick(dessert.id)"><i class="fas fa-edit"></i></button>
               <button class="btn btn-danger" (click)="deleteRecipe(dessert)"><i class="fas fa-trash"></i></button>
             </div>
           </button>
         </div>
-        </div>
+      </div>
 
-        <div class="col-12 col-md-6">
-          <div class="text-title-lato font-weight-bold">Appetizer</div>
-          <div *ngFor="let appetizer of appetizerRecipes$">
-            <button class="btn btn-secondary btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
-              <div>
-                {{appetizer.name}} <small class="text-warning">by {{appetizer.addedBy}}</small>
-              </div>
-              <div>
-                <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-danger" (click)="deleteRecipe(appetizer)"><i class="fas fa-trash"></i></button>
-              </div>
-            </button>
-          </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="text-title-lato font-weight-bold">Other</div>
-            <div *ngFor="let other of otherRecipes$">
-              <button class="btn btn-secondary btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
-                <div>
-                  {{other.name}} <small class="text-warning">by {{other.addedBy}}</small>
-                </div>
-                <div>
-                  <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                  <button class="btn btn-danger" (click)="deleteRecipe(other)"><i class="fas fa-trash"></i></button>
-                </div>
-              </button>
-            </div>
-          </div>
-          </div>
+      <div class="col-12 col-md-6">
+        <div class="text-title-lato font-weight-bold">Appetizer</div>
+        <div *ngIf="appetizerRecipes$.length == 0">
+          <p class="text-danger">None available</p>
         </div>
+        <div *ngFor="let appetizer of appetizerRecipes$">
+          <button class="btn btn-secondary btn-block text-left p-2 m-2 edit-delete-display-icon" disabled>
+            <div>
+              {{appetizer.name}} <small class="text-warning">by {{appetizer.addedBy}}</small>
+            </div>
+            <div>
+              <button class="btn btn-warning" (click)="editRecipeClick(appetizer.id)"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-danger" (click)="deleteRecipe(appetizer)"><i class="fas fa-trash"></i></button>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="text-title-lato font-weight-bold">Other</div>
+        <div *ngIf="otherRecipes$.length == 0">
+          <p class="text-danger">None available</p>
+        </div>
+        <div *ngFor="let other of otherRecipes$">
+          <button class="btn btn-secondary btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
+            <div>
+              {{other.name}} <small class="text-warning">by {{other.addedBy}}</small>
+              huyst
+            </div>
+            <div>
+              <button class="btn btn-warning" (click)="editRecipeClick(other.id)"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-danger" (click)="deleteRecipe(other)"><i class="fas fa-trash"></i></button>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>
 
