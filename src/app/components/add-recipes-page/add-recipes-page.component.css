@@ -1,4 +1,8 @@
 .add-recipes{
-  min-width: 75vh;
+
   background-color: beige;
+}
+
+.add-recipe-title{
+  font-size: 2rem;
 }

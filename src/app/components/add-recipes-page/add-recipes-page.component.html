@@ -1,7 +1,10 @@
 <section class="add-recipes p-4">
+  <div class="title-text-nunito text-center add-recipe-title">
+    Admin Page - Add Recipe
+  </div>
   <div class="container">
-    <div class="col-6">
-      <form [formGroup]="recipeForm">
+
+      <form [formGroup]="recipeForm" class="add-recipes-form">
         <div class="row">
           <div class="col">
             <div class="form-group">
@@ -46,27 +49,37 @@
         <div class="form-group" formArrayName="ingredients">
           <label for="ingredients">Ingredients</label>
           <div *ngFor="let oneIngredient of ingredients.controls;let i=index">
-            <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
+            <div class="input-group-prepend">
+              <input type="text" [formControlName]="i" class="form-control col-11" placeholder='Enter ingredient'>
+              <span class="btn btn-outline col-1 text-center align-middle" id="validationTooltipUsernamePrepend"><i
+                  class="fas fa-minus-circle" (click)="removeIngredient(i)"></i></span>
+            </div>
           </div>
-          <div class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle p-2"></i>Add new
+          <div class="btn btn-outline" (click)="addNewIngredient()"><i class="fas fa-plus-circle p-1"></i>Add new
             ingredient</div>
         </div>
 
         <div class="form-group" formArrayName="instructions">
           <label for="instructions">Instructions</label>
           <div *ngFor="let oneInstruction of instructions.controls;let i=index">
-            <input type="text" [formControlName]="i" class="form-control" placeholder='Enter ingredient'>
+            <div class="input-group-prepend">
+              <input type="text" [formControlName]="i" class="form-control col-11" placeholder='Enter instruction'>
+              <span class="btn btn-outline col-1 text-center align-middle" id="validationTooltipUsernamePrepend"><i
+                  class="fas fa-minus-circle" (click)="removeInstruction(i)"></i></span>
+            </div>
           </div>
-          <div class="btn btn-outline" (click)="addNewInstruction()"><i class="fas fa-plus-circle p-2"></i>Add new
+          <div class="btn btn-outline" (click)="addNewInstruction()"><i class="fas fa-plus-circle p-1"></i>Add new
             instruction</div>
         </div>
-        <button type="submit" class="btn btn-success m-1" (click)="submitForm()" [disabled]="!recipeForm.valid">Submit</button>
+        <button type="submit" class="btn btn-success m-1" (click)="submitForm()"
+          [disabled]="!recipeForm.valid">Submit</button>
         <button type="submit" class="btn btn-danger m-1" (click)="clearForm()">Clear Form</button>
       </form>
-    </div>
 
 
-      <!-- {{this.recipeForm.value|json}} -->
+
+
+    <!-- {{this.recipeForm.value|json}} -->
 
 
   </div>

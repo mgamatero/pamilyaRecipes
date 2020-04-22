@@ -53,6 +53,18 @@ export class AddRecipesPageComponent implements OnInit {
     this.router.navigate(['recipes']);
   }
 
+removeIngredient(i){
+  const ingredientControls = <FormArray>(
+    this.recipeForm.controls['ingredients']);
+    ingredientControls.removeAt(i)
+}
+
+removeInstruction(i){
+  const instructiontControls = <FormArray>(
+    this.recipeForm.controls['instruction']);
+    instructiontControls.removeAt(i)
+}
+
   clearForm() {
     this.recipeForm.reset();
     const ingredientControls = <FormArray>(

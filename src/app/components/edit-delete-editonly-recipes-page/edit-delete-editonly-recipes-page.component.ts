@@ -70,8 +70,6 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
         this.ingredients.push(this.fb.control(element));
       });
 
-
-
       //Formarray - load instructions
       this.indivRecipeToUpdate$.instructions.forEach((element) => {
         this.instructions.push(this.fb.control(element));
@@ -115,6 +113,20 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
   addNewInstruction() {
     this.instructions.push(this.fb.control(''));
   }
+
+  removeIngredient(i){
+    const ingredientControls = <FormArray>(
+      this.recipeForm.controls['ingredients']);
+      ingredientControls.removeAt(i)
+  }
+
+  removeInstruction(i){
+    const instructiontControls = <FormArray>(
+      this.recipeForm.controls['instruction']);
+      instructiontControls.removeAt(i)
+  }
+
+
 
   editRecipe() {
     this.recipeService.updateRecipe(this.recipeForm.value,this.recipeId);
