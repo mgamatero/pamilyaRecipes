@@ -2,10 +2,14 @@
   background-color: rgb(236, 219, 236);
 }
 
+.edit-title{
+  font-size: 2rem;
+}
+
 .form-area{
-  border:solid 1px grey;
+  /* border:solid 1px grey; */
 }
 
 .preview-area{
-  border:solid 1px grey;
+  border-left:solid 1px grey;
 }

@@ -1,11 +1,10 @@
 <!-- <p>{{indivRecipeToUpdate$|json}}</p> -->
 <section class="editonly-recipes">
-  <div class="text-title-lato text-center">
-    Edit Recipe
+  <div class="title-text-nunito text-center edit-title">
+    Admin Page - Edit Recipe
   </div>
 <div class="row">
-  <div class="col-6 form-area text-center">.form-area
-
+  <div class="col-6 form-area text-center">
     <div class="col">
       <form [formGroup]="recipeForm">
         <div class="row">
@@ -30,8 +29,8 @@
           <div class="col">
             <div class="form-group">
               <label for="recipeImage">Image</label>
-              <input type="text" formControlName="image" class="form-control" id="recipeImage"
-                aria-describedby="recipeImage" placeholder="Recipe image url">
+              <textarea type="text" formControlName="image" class="form-control" id="recipeImage"
+                aria-describedby="recipeImage" placeholder="Recipe image url"></textarea>
             </div>
           </div>
         </div>
@@ -71,7 +70,7 @@
       </form>
     </div>
   </div>
-  <div class="col-6 preview-area text-center">.preview-area
+  <div class="col-6 preview-area text-center">
     <div class="container">
 
       <!-- <div class="col-3"><img src={{indivRecipes$.image}} alt="" class="img-fluid img-thumbnail recipe-details-img"></div>

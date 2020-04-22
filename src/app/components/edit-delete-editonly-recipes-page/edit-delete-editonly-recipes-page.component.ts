@@ -41,6 +41,17 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
     this.recipeService.getRecipeByID(this.recipeId).subscribe((data) => {
       this.indivRecipeToUpdate$ = data.payload.data() as Recipe;
 
+      //clear formbuilder formarray sections first.  To get rid of element[0]
+      // for (let i = ingredientControls.length - 1; i >= 0; i--) {
+      //   ingredientControls.removeAt(i);
+      // }
+      // const instructionControls = <FormArray>(
+      //   this.recipeForm.controls['instructions']
+      // );
+      // for (let i = instructionControls.length - 1; i >= 0; i--) {
+      //   instructionControls.removeAt(i);
+      // }
+
       //this whole section sets formbuilder fields one by one ----  refactor to do with spread operator
       // --------------------------------------------------------
       this.recipeForm.get('name').setValue(this.indivRecipeToUpdate$.name);
@@ -50,11 +61,18 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
       this.recipeForm.get('image').setValue(this.indivRecipeToUpdate$.image);
       this.recipeForm.get('type').setValue(this.indivRecipeToUpdate$.type);
 
+      //Do these to remove element 0 which is empty - hacky
+      this.ingredients.removeAt(0)
+      this.instructions.removeAt(0)
+
+      //Formarray - load ingredients
       this.indivRecipeToUpdate$.ingredients.forEach((element) => {
         this.ingredients.push(this.fb.control(element));
-        console.log('ingredient - ', element);
       });
 
+
+
+      //Formarray - load instructions
       this.indivRecipeToUpdate$.instructions.forEach((element) => {
         this.instructions.push(this.fb.control(element));
         console.log('instructions - ', element);
@@ -99,7 +117,6 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
   }
 
   editRecipe() {
-
     this.recipeService.updateRecipe(this.recipeForm.value,this.recipeId);
     this.recipeForm.reset();
     this.router.navigate(['recipes']);

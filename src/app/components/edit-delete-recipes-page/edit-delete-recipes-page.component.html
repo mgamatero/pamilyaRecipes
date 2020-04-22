@@ -1,7 +1,7 @@
 <section class="edit-delete-recipes">
   <div class="container">
     <div class="row">
-      <div class="col text-center text-title-nunito m-3 text-title-edit-delete">Select Recipe to Edit/Delete:</div>
+      <div class="col text-center text-title-nunito m-3 text-title-edit-delete">Admin Page - Select Recipe to Edit/Delete:</div>
     </div>
     <div class="row">
       <div class="col-12 col-md-6">
@@ -10,7 +10,7 @@
           <p class="text-danger">None available</p>
         </div>
         <div *ngFor="let main of mainDishRecipes$">
-          <button class="btn btn-secondary btn-block text-left p-2 m-2 edit-delete-display-icon" disabled>
+          <button class="btn btn-dark btn-block text-left p-2 m-2 edit-delete-display-icon" disabled>
             <div>
               {{main.name}} <small class="text-warning">by {{main.addedBy}}</small>
             </div>
@@ -27,7 +27,7 @@
           <p class="text-danger">None available</p>
         </div>
         <div *ngFor="let dessert of dessertRecipes$">
-          <button class="btn btn-secondary btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
+          <button class="btn btn-dark btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
             <div>
               {{dessert.name}} <small class="text-warning">by {{dessert.addedBy}}</small>
             </div>
@@ -45,7 +45,7 @@
           <p class="text-danger">None available</p>
         </div>
         <div *ngFor="let appetizer of appetizerRecipes$">
-          <button class="btn btn-secondary btn-block text-left p-2 m-2 edit-delete-display-icon" disabled>
+          <button class="btn btn-dark btn-block text-left p-2 m-2 edit-delete-display-icon" disabled>
             <div>
               {{appetizer.name}} <small class="text-warning">by {{appetizer.addedBy}}</small>
             </div>
@@ -63,7 +63,7 @@
           <p class="text-danger">None available</p>
         </div>
         <div *ngFor="let other of otherRecipes$">
-          <button class="btn btn-secondary btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
+          <button class="btn btn-dark btn-block text-left p-2 m-2  edit-delete-display-icon" disabled>
             <div>
               {{other.name}} <small class="text-warning">by {{other.addedBy}}</small>
               huyst
