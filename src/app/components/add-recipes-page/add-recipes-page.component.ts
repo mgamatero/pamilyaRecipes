@@ -60,9 +60,9 @@ removeIngredient(i){
 }
 
 removeInstruction(i){
-  const instructiontControls = <FormArray>(
-    this.recipeForm.controls['instruction']);
-    instructiontControls.removeAt(i)
+  const instructionControls = <FormArray>(
+    this.recipeForm.controls['instructions']);
+    instructionControls.removeAt(i)
 }
 
   clearForm() {
