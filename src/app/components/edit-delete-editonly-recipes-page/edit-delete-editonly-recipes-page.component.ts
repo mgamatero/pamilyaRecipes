@@ -121,9 +121,9 @@ export class EditDeleteEditonlyRecipesPageComponent implements OnInit {
   }
 
   removeInstruction(i){
-    const instructiontControls = <FormArray>(
+    const instructionControls = <FormArray>(
       this.recipeForm.controls['instruction']);
-      instructiontControls.removeAt(i)
+      instructionControls.removeAt(i)
   }
 
 
